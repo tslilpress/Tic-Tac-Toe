@@ -1,5 +1,3 @@
-'use strict'
-
 API="https://tic-tac-toe-api-development.herokuapp.com"
 URL_PATH="/sign-out"
 
