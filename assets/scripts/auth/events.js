@@ -41,7 +41,7 @@ const onChangePassword = function (event) {
 
     .then(ui.onChangePasswordSuccess)
 
-    .catch(ui.onChangePasswordSuccess)
+    .catch(ui.onChangePasswordFailure)
 }
 
 module.exports = {

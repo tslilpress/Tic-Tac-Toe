@@ -21,21 +21,12 @@ const changePassword = function (data) {
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
-    header: {
+    headers: {
       Authorization: 'Bearer ' + store.user.token
     },
     data: data
   })
 }
-
-
-
-
-
-
-
-
-
 
 module.exports = {
   signUp: signUp,
