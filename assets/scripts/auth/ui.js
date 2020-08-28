@@ -18,7 +18,6 @@ const onSignInSuccess = function (res) {
   $('#sign-out-form').show()
   $('#sign-in-form').hide()
   $('#sign-up-form').hide()
-
 }
 
 const onSignInFailure = function (err) {
@@ -40,6 +39,11 @@ const onSignOutSuccess = function (res) {
   $('#message').text('You signed out!')
   $('#change-password').hide()
   $('#sign-out-form').hide()
+  $('#sign-in-form').show()
+}
+
+const onSignOutFailure = function (res) {
+  $('#message').text('Oops something went wrong, Try again.')
   $('#sign-in-form').show()
 }
 
