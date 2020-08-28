@@ -13,9 +13,12 @@ const onSignUpFailure = function (err) {
 const onSignInSuccess = function (res) {
   store.user = res.user
   $('#message').text('Thanks for Signing in ' + res.user.email)
+  $('#sign-in-form').trigger('reset')
   $('#change-password').show()
+  $('#sign-out-form').show()
   $('#sign-in-form').hide()
   $('#sign-up-form').hide()
+
 }
 
 const onSignInFailure = function (err) {
@@ -33,11 +36,19 @@ const onChangePasswordFailure = function (res) {
   $('#change-password').trigger('reset')
 }
 
+const onSignOutSuccess = function (res) {
+  $('#message').text('You signed out!')
+  $('#change-password').hide()
+  $('#sign-out-form').hide()
+  $('#sign-in-form').show()
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
   onSignInFailure,
   onChangePasswordSuccess,
-  onChangePasswordFailure
+  onChangePasswordFailure,
+  onSignOutSuccess
 }
