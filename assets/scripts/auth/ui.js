@@ -54,5 +54,6 @@ module.exports = {
   onSignInFailure,
   onChangePasswordSuccess,
   onChangePasswordFailure,
-  onSignOutSuccess
+  onSignOutSuccess,
+  onSignOutFailure
 }
