@@ -1,1 +1,69 @@
 @import '~bootstrap/scss/bootstrap';
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  height: 100vh;
+}
+
+.board {
+  // set the max height and the min width of thte board
+  // 100vh - 100% of the viewport height
+  // use a method called `calc` to subtract some space around
+  // each side
+  max-height: calc(100vh - 100px);
+  min-width: calc(100vh - 100px);
+
+  // Setting margin to auto will make the left/right margins the same size
+  // which effectively centers the element.
+  margin: auto;
+
+  // Add cat background to board:
+  background: url('public/cat.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.box {
+  background: white;
+  // set the minimum height for each box to be a third of the parent's width
+  // (board's height)
+  // The calc method will take 100% of the parent's height and divide it by 3
+  min-height: calc(100% / 3);
+
+  // Set each box to have `display` be `flex` so we can center the content
+  // (x's and o's) inside of the boxes
+  display: flex;
+
+  // Center the content along the main-axis (left-to-right because flex-direction defaults to `row`)
+  justify-content: center;
+
+  // Center the content along the cross-axis (top-to-bottom because the cross-axis is perpendicular to the main-axis)
+  align-items: center;
+
+
+  font-size: 15vh;
+
+  text-shadow: 2px 2px rgba(0, 0, 0, .25);
+
+  user-select: none;
+
+  border-right: 3px solid pink;
+  border-bottom: 3px solid pink;
+
+
+  &:nth-child(3n) {
+    border-right: 0px;
+  }
+
+
+  &:nth-last-child(-1n + 3) {
+    border-bottom: 0px;
+  }
+
+  &:hover {
+    background-color: #89c5ba;
+    cursor: pointer;
+  }
+}
