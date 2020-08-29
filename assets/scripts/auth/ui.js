@@ -2,7 +2,11 @@ const store = require('./../store')
 
 const onSignUpSuccess = function (res) {
   $('#message').text('Thanks for Siging up ' + res.user.email)
-  $('#sign-up-form').hide()
+  $('#intro-buttons').hide()
+  $('#new-game-form').show()
+  $('.board').show()
+  $('#change-password').show()
+  $('#sign-out-form').show()
 }
 
 const onSignUpFailure = function (err) {
@@ -16,11 +20,11 @@ const onSignInSuccess = function (res) {
   $('#sign-in-form').trigger('reset')
   $('#change-password').show()
   $('#sign-out-form').show()
-  $('#sign-in-form').hide()
-  $('#sign-up-form').hide()
   $('#new-game-form').show()
   $('.board').show()
   $('#intro-buttons').hide()
+  $('#sign-in-form').hide()
+  $('#sign-up-form').hide()
 }
 
 const onSignInFailure = function (err) {
@@ -43,7 +47,7 @@ const onSignOutSuccess = function (res) {
   $('#change-password').hide()
   $('#sign-out-form').hide()
   $('#new-game-form').hide()
-  $('.container-board').hide()
+  $('.board').hide()
   $('#sign-in-form').show()
   $('#sign-up-form').show()
   $('#intro-buttons').show()
