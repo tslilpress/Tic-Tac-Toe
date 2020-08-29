@@ -12,80 +12,65 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>TIC TAC TOE</h1>
-      <p id='message'></p>
-      <section>
-        <form id="sign-up-form">
-          <fieldset>
-            <legend>Sign Up</legend>
-
-            <input id="email" type="email" name="credentials[email]" placeholder="Email">
-
-            <input id="password" type="password" name="credentials[password]" placeholder="Password">
-
-            <input id="password_confirmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-
-            <input type="submit" value="Sign up!">
-          </fieldset>
-        </form>
-      </section>
-
-      <section>
-        <form id="sign-in-form">
-          <fieldset>
-            <legend>Sign In</legend>
-
-            <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
-
-            <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
-
-            <input type="submit" value="Sign In!">
-          </fieldset>
-        </form>
-      </section>
-
-      <section>
-        <form id="change-password">
-          <fieldset>
-            <legend>Change Password</legend>
-
+    <div class='container-fluid'>
+      <div class='row'>
+        <div class='col-4 password'>
+          <form id="change-password">
+            <h3>Change Password</h3>
             <input id="old-password" type="password" name="passwords[old]" placeholder="Old Password">
-
             <input id="new-password" type="password" name="passwords[new]" placeholder="New Password">
-
             <input type="submit" value="Change!">
-          </fieldset>
-        </form>
-      </section>
-
-      <section>
-        <form id="sign-out-form">
-          <fieldset>
-              <input type="submit" name="token" value="Sign out!">
-          </fieldset>
-        </form>
-      </section>
-
-      <section>
-        <form id="new-game-form">
-          <fieldset>
-              <input type="submit" value="New Game">
-          </fieldset>
-        </form>
-      </section>
-
-      <div class="container">
-        <div class="row board h-100">
-          <div class="col-4 box"></div>
-          <div class="col-4 box"></div>
-          <div class="col-4 box"></div>
-          <div class="col-4 box"></div>
-          <div class="col-4 box"></div>
-          <div class="col-4 box"></div>
-          <div class="col-4 box"></div>
-          <div class="col-4 box"></div>
-          <div class="col-4 box"></div>
+          </form>
+        </div>
+        <div class='col-4'>
+          <h1>TIC TAC TOE</h1>
+          <div class='message-container'>
+            <p id='message'></p>
+          </div>
+        </div>
+        <div class='col-1'>
+          <form id="sign-out-form">
+            <input type="submit" name="token" value="Sign out!">
+          </form>
+        </div>
+        <div class='col-1'>
+          <form id="new-game-form">
+            <input type="submit" value="New Game">
+          </form>
         </div>
       </div>
+      <div id="intro-buttons">
+         <section>
+            <form id="sign-up-form">
+              <h3>Sign Up</h3>
+              <input id="email" type="email" name="credentials[email]" placeholder="Email">
+              <input id="password" type="password" name="credentials[password]" placeholder="Password">
+              <input id="password_confirmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <input type="submit" value="Sign up!">
+            </form>
+         </section>
+          <section>
+            <form id="sign-in-form">
+              <h3>Sign In</h3>
+              <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
+              <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
+              <input type="submit" value="Sign In!">
+            </form>
+          </section>
+        </div>
+       </div>
+       <div class="container-board">
+         <div class="row board h-100">
+           <div class="col-4 cell" data-cell-index = '0'></div>
+           <div class="col-4 cell" data-cell-index = '1'></div>
+           <div class="col-4 cell" data-cell-index = '2'></div>
+           <div class="col-4 cell" data-cell-index = '3'></div>
+           <div class="col-4 cell" data-cell-index = '4'></div>
+           <div class="col-4 cell" data-cell-index = '5'></div>
+           <div class="col-4 cell" data-cell-index = '6'></div>
+           <div class="col-4 cell" data-cell-index = '7'></div>
+           <div class="col-4 cell" data-cell-index = '8'></div>
+         </div>
+       </div>
     </body>
 </html>

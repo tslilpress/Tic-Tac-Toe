@@ -2,6 +2,7 @@
 const authEvents = require('./auth/events')
 
 $(() => {
+  $('.board').hide()
   $('#new-game-form').hide()
   $('#sign-out-form').hide()
   $('#change-password').hide()
@@ -10,4 +11,5 @@ $(() => {
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#sign-out-form').on('submit', authEvents.onSignOut)
   $('#new-game-form').on('submit', authEvents.onNewGame)
+  $('.cell').one('click', authEvents.OnClickCell)
 })

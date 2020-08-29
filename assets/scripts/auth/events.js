@@ -67,11 +67,25 @@ const onNewGame = function (event) {
 
   api.newGame(data)
 }
+// create variable for current player
+// create a click event
+// create a variable to store each click in the api
+// link to api
+
+const onClickCell = function (event) {
+  event.preventDefault()
+  let currentPlayer = 'x'
+  const data = event.target
+  $('#data-cell-index').text(currentPlayer)
+  currentPlayer = currentPlayer ? 'x' : 'o'
+  api.newClick(data)
+}
 
 module.exports = {
   onSignUp: onSignUp,
   onSignIn: onSignIn,
   onChangePassword: onChangePassword,
   onSignOut: onSignOut,
-  onNewGame: onNewGame
+  onNewGame: onNewGame,
+  onClickCell: onClickCell
 }

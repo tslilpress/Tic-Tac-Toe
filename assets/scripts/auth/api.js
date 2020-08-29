@@ -44,6 +44,17 @@ const newGame = function (data) {
     method: 'POST',
     headers: {
       Authorization: 'Bearer ' + store.user.token
+    },
+    data: data
+  })
+}
+
+const newClick = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
     }
   })
 }
@@ -53,5 +64,6 @@ module.exports = {
   signIn: signIn,
   changePassword: changePassword,
   signOut: signOut,
-  newGame: newGame
+  newGame: newGame,
+  newClick: newClick
 }

@@ -18,6 +18,9 @@ const onSignInSuccess = function (res) {
   $('#sign-out-form').show()
   $('#sign-in-form').hide()
   $('#sign-up-form').hide()
+  $('#new-game-form').show()
+  $('.board').show()
+  $('#intro-buttons').hide()
 }
 
 const onSignInFailure = function (err) {
@@ -39,7 +42,11 @@ const onSignOutSuccess = function (res) {
   $('#message').text('You signed out!')
   $('#change-password').hide()
   $('#sign-out-form').hide()
+  $('#new-game-form').hide()
+  $('.container-board').hide()
   $('#sign-in-form').show()
+  $('#sign-up-form').show()
+  $('#intro-buttons').show()
 }
 
 const onSignOutFailure = function (res) {

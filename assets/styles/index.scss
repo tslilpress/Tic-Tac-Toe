@@ -1,45 +1,67 @@
 @import '~bootstrap/scss/bootstrap';
 
-h1 {
-  text-align: center;
+body {
+  background-color: rgb(102, 255, 255);
+  color: rgb(102, 255, 255);
 }
 
-.container {
+h1 {
+  text-align: center;
+  font-size: 4rem;
+}
+
+input {
+  color: rgb(102, 255, 255);
+}
+
+input {
+  border: none;
+}
+
+input[type=submit] {
+  background-color: rgb(255, 71, 212);
+  border: none;
+}
+
+
+.right-buttons {
+  display: flex;
+}
+
+.message-container {
+  display: flex;
+  justify-content: center;
+}
+
+.password {
+  padding: 10px;
+}
+
+
+.container-fluid {
+  background-color: rgb(255, 71, 212);
+  // height: 100px;
+}
+
+.container-board {
+  display: flex;
+  justify-content: center;
   height: 100vh;
 }
 
 .board {
-  // set the max height and the min width of thte board
-  // 100vh - 100% of the viewport height
-  // use a method called `calc` to subtract some space around
-  // each side
-  max-height: calc(100vh - 100px);
-  min-width: calc(100vh - 100px);
-
-  // Setting margin to auto will make the left/right margins the same size
-  // which effectively centers the element.
+  max-height: 60%;
+  min-width: 60%;
   margin: auto;
-
-  // Add cat background to board:
-  background: url('public/cat.jpg') no-repeat center center;
-  background-size: cover;
 }
 
-.box {
-  background: white;
-  // set the minimum height for each box to be a third of the parent's width
-  // (board's height)
-  // The calc method will take 100% of the parent's height and divide it by 3
+.cell {
   min-height: calc(100% / 3);
 
-  // Set each box to have `display` be `flex` so we can center the content
-  // (x's and o's) inside of the boxes
   display: flex;
 
-  // Center the content along the main-axis (left-to-right because flex-direction defaults to `row`)
   justify-content: center;
 
-  // Center the content along the cross-axis (top-to-bottom because the cross-axis is perpendicular to the main-axis)
   align-items: center;
 
 
@@ -49,8 +71,8 @@ h1 {
 
   user-select: none;
 
-  border-right: 3px solid pink;
-  border-bottom: 3px solid pink;
+  border-right: 5px solid rgb(255, 71, 212);
+  border-bottom: 5px solid rgb(255, 71, 212);
 
 
   &:nth-child(3n) {
@@ -63,7 +85,15 @@ h1 {
   }
 
   &:hover {
-    background-color: #89c5ba;
     cursor: pointer;
   }
+}
+
+#intro-buttons {
+  background-color: rgba(148, 61, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px;
+  padding: 15px;
 }
