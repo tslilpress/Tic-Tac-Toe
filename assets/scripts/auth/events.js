@@ -74,11 +74,13 @@ const onNewGame = function (event) {
 
 const onClickCell = function (event) {
   event.preventDefault()
-  let currentPlayer = 'x'
-  const data = event.target
-  $('#data-cell-index').text(currentPlayer)
+  // let currentPlayer = 'x'
+  let currentPlayer = event.target
+  $('#data-cell-index').attr(currentPlayer)
   currentPlayer = currentPlayer ? 'x' : 'o'
-  api.newClick(data)
+  api.newClick(currentPlayer)
+
+    .then(ui.onCellClickSuccess)
 }
 
 module.exports = {

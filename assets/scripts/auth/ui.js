@@ -58,6 +58,10 @@ const onSignOutFailure = function (res) {
   $('#sign-in-form').show()
 }
 
+const onCellClickSuccess = function (res) {
+  $('data-cell-index').text(currentPlayer)
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -66,5 +70,6 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onCellClickSuccess
 }
