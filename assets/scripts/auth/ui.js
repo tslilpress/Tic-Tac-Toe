@@ -59,7 +59,7 @@ const onSignOutFailure = function (res) {
 }
 
 const onCellClickSuccess = function (res) {
-  $('data-cell-index').text(currentPlayer)
+  $('.cell').text(event.target)
 }
 
 module.exports = {

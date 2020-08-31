@@ -51,11 +51,20 @@ const newGame = function (data) {
 
 const newClick = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/games',
+    url: config.apiUrl + `/games/${'_id'}`,
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
-    }
+    },
+    data: {
+        "game": {
+          "cell": {
+            "index": 0,
+            "value": "x"
+          },
+          "over": false
+        }
+      }
   })
 }
 

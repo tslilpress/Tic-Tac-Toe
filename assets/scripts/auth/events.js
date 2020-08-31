@@ -76,8 +76,8 @@ const onClickCell = function (event) {
   event.preventDefault()
   // let currentPlayer = 'x'
   let currentPlayer = event.target
-  $('#data-cell-index').attr(currentPlayer)
-  currentPlayer = currentPlayer ? 'x' : 'o'
+  $('data-cell-index').attr(currentPlayer)
+  currentPlayer = currentPlayer === 'x' ? 'x' : 'o'
   api.newClick(currentPlayer)
 
     .then(ui.onCellClickSuccess)

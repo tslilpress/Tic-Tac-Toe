@@ -107,3 +107,15 @@ input[type=submit] {
 #tac {
   color: rgba(148, 61, 255, 0.5);
 }
+
+@media screen and (max-width: 1020px) {
+  .container-board {
+    padding-top: 200px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .container-board {
+    padding-top: 300px;
+  }
+}
