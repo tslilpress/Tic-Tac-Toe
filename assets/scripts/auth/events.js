@@ -60,27 +60,30 @@ const onSignOut = function (event) {
 
 const onNewGame = function (event) {
   event.preventDefault()
-
-  const form = event.target
-
-  const data = getFormFields(form)
-
-  api.newGame(data)
+  console.log('did i make it to onNewGame?')
+  api.newGame(event.target)
+    .then(ui.onNewGameSuccess)
+    .catch(ui.onNewGameFailure)
 }
 // create variable for current player
 // create a click event
 // create a variable to store each click in the api
 // link to api
 
-const onClickCell = function (event) {
-  event.preventDefault()
-  // let currentPlayer = 'x'
-  let currentPlayer = event.target
-  $('data-cell-index').attr(currentPlayer)
-  currentPlayer = currentPlayer === 'x' ? 'x' : 'o'
-  api.newClick(currentPlayer)
+let currentPlayer = 'x'
+
+const onCellClick = function (event) {
+  console.log('did i make it to onCellClick')
+  const data = event.target
+  $(event.target).text(currentPlayer)
+  console.log(data.dataset.cellIndex)
+  currentPlayer === 'x' ? currentPlayer = 'o' : currentPlayer = 'x'
+  api.newClick(data.dataset.cellIndex, currentPlayer)
+  // let currentPlayer = event.target.id
+  // const data = $(currentPlayer).attr('data-cell-index')
 
     .then(ui.onCellClickSuccess)
+    .catch(ui.onCellClickFailure)
 }
 
 module.exports = {
@@ -89,5 +92,5 @@ module.exports = {
   onChangePassword: onChangePassword,
   onSignOut: onSignOut,
   onNewGame: onNewGame,
-  onClickCell: onClickCell
+  onCellClick: onCellClick
 }

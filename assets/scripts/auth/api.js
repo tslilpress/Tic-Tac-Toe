@@ -38,33 +38,34 @@ const signOut = function (data) {
   })
 }
 
-const newGame = function (data) {
+const newGame = function () {
+  console.log('did i make it to newGame? ')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
     headers: {
       Authorization: 'Bearer ' + store.user.token
-    },
-    data: data
+    }
   })
 }
 
-const newClick = function (data) {
+const newClick = function (data, currentPlayer) {
+  console.log('did i make it to newClick')
   return $.ajax({
-    url: config.apiUrl + `/games/${'_id'}`,
+    url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
     data: {
-        "game": {
-          "cell": {
-            "index": 0,
-            "value": "x"
-          },
-          "over": false
-        }
+      game: {
+        cell: {
+          index: data,
+          value: currentPlayer
+        },
+        over: false
       }
+    }
   })
 }
 
