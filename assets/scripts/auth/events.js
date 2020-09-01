@@ -69,21 +69,22 @@ const onNewGame = function (event) {
 // create a click event
 // create a variable to store each click in the api
 // link to api
-
 let currentPlayer = 'x'
 
 const onCellClick = function (event) {
   console.log('did i make it to onCellClick')
   const data = event.target
-  $(event.target).text(currentPlayer)
-  console.log(data.dataset.cellIndex)
-  currentPlayer === 'x' ? currentPlayer = 'o' : currentPlayer = 'x'
-  api.newClick(data.dataset.cellIndex, currentPlayer)
-  // let currentPlayer = event.target.id
-  // const data = $(currentPlayer).attr('data-cell-index')
+  const cellVal = $(event.target).text()
+  if (cellVal === '') {
+    $(event.target).text(currentPlayer)
 
-    .then(ui.onCellClickSuccess)
-    .catch(ui.onCellClickFailure)
+    console.log(data.dataset.cellIndex)
+    currentPlayer === 'x' ? currentPlayer = 'o' : currentPlayer = 'x'
+
+    api.newClick(data.dataset.cellIndex, currentPlayer)
+      .then(ui.onCellClickSuccess)
+      .catch(ui.onCellClickFailure)
+  }
 }
 
 module.exports = {

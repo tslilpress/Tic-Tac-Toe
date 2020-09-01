@@ -1,11 +1,9 @@
 const store = require('./../store')
 
 const onSignUpSuccess = function (res) {
-  $('#message').text('Thanks for Siging up ' + res.user.email)
-  $('#intro-buttons').hide()
-  $('#new-game-form').show()
-  $('.board').show()
-  $('#change-password').show()
+  $('#sign-up-form').trigger('reset')
+  $('#message').text('Thanks for Siging up ' + res.user.email + ' Sign in!')
+  $('#sign-up-form').hide()
   $('#sign-out-form').show()
 }
 
@@ -16,12 +14,12 @@ const onSignUpFailure = function (err) {
 
 const onSignInSuccess = function (res) {
   store.user = res.user
-  $('#message').text('Thanks for Signing in ' + res.user.email)
+  $('#message').text(`Thanks for signing in ${res.user.email}`)
+  $('#new-game-message').text('Click New Game to start playing!')
   $('#sign-in-form').trigger('reset')
   $('#change-password').show()
   $('#sign-out-form').show()
   $('#new-game-form').show()
-  $('.board').show()
   $('#intro-buttons').hide()
   $('#sign-in-form').hide()
   $('#sign-up-form').hide()
@@ -60,7 +58,10 @@ const onSignOutFailure = function (res) {
 
 const onNewGameSuccess = function (res) {
   store.game = res.game
+  $('#new-game-message').hide()
   $('#message').text("You're on!")
+  $('.board').show()
+  $('.cell').text('')
   console.log('hello ', store.game)
 }
 
