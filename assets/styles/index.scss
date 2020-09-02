@@ -26,6 +26,9 @@ input[type=submit] {
   border: none;
 }
 
+p {
+  text-align: center;
+}
 
 .right-buttons {
   display: flex;
@@ -34,7 +37,6 @@ input[type=submit] {
 .message-container {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .password {
@@ -62,6 +64,8 @@ input[type=submit] {
 }
 
 .cell {
+  color: rgb(255, 71, 212);
+
   min-height: calc(100% / 3);
 
   display: flex;

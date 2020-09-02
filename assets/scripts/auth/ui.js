@@ -2,9 +2,8 @@ const store = require('./../store')
 
 const onSignUpSuccess = function (res) {
   $('#sign-up-form').trigger('reset')
-  $('#message').text('Thanks for Siging up ' + res.user.email + ' Sign in!')
+  $('#message').text(`Thanks for signing up ${res.user.email}! Sign in!`)
   $('#sign-up-form').hide()
-  $('#sign-out-form').show()
 }
 
 const onSignUpFailure = function (err) {
@@ -14,8 +13,7 @@ const onSignUpFailure = function (err) {
 
 const onSignInSuccess = function (res) {
   store.user = res.user
-  $('#message').text(`Thanks for signing in ${res.user.email}`)
-  $('#new-game-message').text('Click New Game to start playing!')
+  $('#message').text(`Thanks for signing in ${res.user.email}! Click New Game to start playing!`)
   $('#sign-in-form').trigger('reset')
   $('#change-password').show()
   $('#sign-out-form').show()
@@ -58,7 +56,6 @@ const onSignOutFailure = function (res) {
 
 const onNewGameSuccess = function (res) {
   store.game = res.game
-  $('#new-game-message').hide()
   $('#message').text("You're on!")
   $('.board').show()
   $('.cell').text('')
@@ -72,6 +69,23 @@ const onCellClickSuccess = function (res) {
   store.game = res.game
   console.log('did i make it to onCellClickSuccess ', res.game)
 }
+
+// create an array of winning combos
+// loop through array to find winning combos in game.cells
+// if winning combos match stop game ???
+// or a really long conditional statement
+
+// const winnerSuccess = function (res) {
+//   store.game = res.game
+//   const winCells = res.game.cells
+//   console.log('winCells is ', winCells)
+//   console.log('winCells is ', winCells[0])
+//   console.log('winCells is ', winCells[1])
+//   console.log('winCells is ', winCells[2])
+//   if (winCells[0] === winCells[1] && winCells[0] === winCells[2]) {
+//     console.log('win')
+//   }
+// }
 
 module.exports = {
   onSignUpSuccess,

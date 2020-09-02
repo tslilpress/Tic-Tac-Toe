@@ -1,5 +1,6 @@
 'use strict'
 const authEvents = require('./auth/events')
+const authUi = require('./auth/ui')
 
 $(() => {
   $('.board').hide()
@@ -12,4 +13,5 @@ $(() => {
   $('#sign-out-form').on('submit', authEvents.onSignOut)
   $('#new-game-form').on('submit', authEvents.onNewGame)
   $('.cell').on('click', authEvents.onCellClick)
+  // $('.cell').on('click', authUi.winnerSuccess)
 })

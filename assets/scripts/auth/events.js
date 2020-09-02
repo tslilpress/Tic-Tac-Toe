@@ -65,10 +65,7 @@ const onNewGame = function (event) {
     .then(ui.onNewGameSuccess)
     .catch(ui.onNewGameFailure)
 }
-// create variable for current player
-// create a click event
-// create a variable to store each click in the api
-// link to api
+
 let currentPlayer = 'x'
 
 const onCellClick = function (event) {
