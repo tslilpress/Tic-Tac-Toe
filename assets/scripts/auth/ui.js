@@ -54,9 +54,11 @@ const onSignOutFailure = function (res) {
   $('#sign-in-form').show()
 }
 
+
+
 const onNewGameSuccess = function (res) {
   store.game = res.game
-  $('#message').text("You're on!")
+  $('#message').text("X You're on!!")
   $('.board').show()
   $('.cell').text('')
   console.log('hello ', store.game)
@@ -70,22 +72,6 @@ const onCellClickSuccess = function (res) {
   console.log('did i make it to onCellClickSuccess ', res.game)
 }
 
-// create an array of winning combos
-// loop through array to find winning combos in game.cells
-// if winning combos match stop game ???
-// or a really long conditional statement
-
-// const winnerSuccess = function (res) {
-//   store.game = res.game
-//   const winCells = res.game.cells
-//   console.log('winCells is ', winCells)
-//   console.log('winCells is ', winCells[0])
-//   console.log('winCells is ', winCells[1])
-//   console.log('winCells is ', winCells[2])
-//   if (winCells[0] === winCells[1] && winCells[0] === winCells[2]) {
-//     console.log('win')
-//   }
-// }
 
 module.exports = {
   onSignUpSuccess,

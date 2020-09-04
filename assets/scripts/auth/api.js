@@ -39,7 +39,7 @@ const signOut = function (data) {
 }
 
 const newGame = function () {
-  console.log('did i make it to newGame? ')
+  // console.log('did i make it to newGame? ')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -49,8 +49,8 @@ const newGame = function () {
   })
 }
 
-const newClick = function (data, currentPlayer) {
-  console.log('did i make it to newClick')
+const newClick = function (data, currentPlayer, gameOver) {
+  // console.log('did i make it to newClick')
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
@@ -63,7 +63,7 @@ const newClick = function (data, currentPlayer) {
           index: data,
           value: currentPlayer
         },
-        over: false
+        over: gameOver
       }
     }
   })
