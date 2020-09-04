@@ -68,6 +68,7 @@ const onNewGame = function (event) {
 }
 
 let currentPlayer = 'X'
+let winner = 'O'
 
 const onCellClick = function (event) {
   // console.log('did i make it to onCellClick')
@@ -76,14 +77,19 @@ const onCellClick = function (event) {
   if (cellVal === '') {
     $(event.target).text(currentPlayer)
   }
-
   const gameOver = onWinner()
+
 
   api.newClick(data.dataset.cellIndex, currentPlayer, gameOver)
     .then(ui.onCellClickSuccess)
     .catch(ui.onCellClickFailure)
   currentPlayer === 'O' ? currentPlayer = 'X' : currentPlayer = 'O'
+  winner === currentPlayer ? winner = 'X' : winner = 'O'
   $('#message').text(`${currentPlayer} i'ts your turn!`)
+  if (gameOver) {
+    $('.cell').off('click')
+    $('#message').text(`${winner} WINS!`)
+  }
 }
 
 // reate an empty game array

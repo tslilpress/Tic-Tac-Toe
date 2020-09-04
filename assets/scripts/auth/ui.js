@@ -72,7 +72,6 @@ const onCellClickSuccess = function (res) {
   console.log('did i make it to onCellClickSuccess ', res.game)
 }
 
-
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
