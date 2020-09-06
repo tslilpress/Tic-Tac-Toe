@@ -54,22 +54,18 @@ const onSignOutFailure = function (res) {
   $('#sign-in-form').show()
 }
 
-
-
 const onNewGameSuccess = function (res) {
   store.game = res.game
   $('#message').text("X You're on!!")
   $('.board').show()
   $('.cell').text('')
-  console.log('hello ', store.game)
+  console.log(store.game)
 }
 
 const onNewGameFailure = function (res) {
 }
 
 const onCellClickSuccess = function (res) {
-  store.game = res.game
-  console.log('did i make it to onCellClickSuccess ', res.game)
 }
 
 module.exports = {
