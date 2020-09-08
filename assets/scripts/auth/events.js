@@ -74,6 +74,7 @@ const onNewGame = function (event) {
 let currentPlayer = 'X'
 let winner = 'O'
 let gameOver = false
+
 const onCellClick = function (event) {
   if (gameOver) {
     return
@@ -83,6 +84,10 @@ const onCellClick = function (event) {
   const cellVal = $(event.target).text()
   if (cellVal === '' && gameOver === false) {
     $(event.target).text(currentPlayer)
+    const dci = $(event.target).attr('data-cell-index')
+    const dcInt = parseInt(dci)
+    store.game.cells[dcInt] = currentPlayer
+    console.log('events cells ', store.game.cells)
   }
 
   gameOver = onWinner()
@@ -96,28 +101,29 @@ const onCellClick = function (event) {
     $('#message').text(`${currentPlayer} i'ts your turn!`)
   } else if (gameOver === true) {
     $('#message').text(`${winner} WON!`)
-  } else {
-    $('#message').text('It\'s a tie! Start a new game')
   }
 }
 
 const onWinner = function () {
-  if ($('.cell')[0].innerText === $('.cell')[1].innerText && $('.cell')[1].innerText === $('.cell')[2].innerText && $('.cell')[0].innerText !== '') {
+  if (store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2] && store.game.cells[0] !== '') {
     return true
-  } else if ($('.cell')[0].innerText === $('.cell')[4].innerText && $('.cell')[4].innerText === $('.cell')[8].innerText && $('.cell')[0].innerText !== '') {
+  } else if (store.game.cells[0] === store.game.cells[4] && store.game.cells[4] === store.game.cells[8] && store.game.cells[0] !== '') {
     return true
-  } else if ($('.cell')[0].innerText === $('.cell')[3].innerText && $('.cell')[3].innerText === $('.cell')[6].innerText && $('.cell')[0].innerText !== '') {
+  } else if (store.game.cells[0] === store.game.cells[3] && store.game.cells[3] === store.game.cells[6] && store.game.cells[0] !== '') {
     return true
-  } else if ($('.cell')[1].innerText === $('.cell')[4].innerText && $('.cell')[4].innerText === $('.cell')[7].innerText && $('.cell')[1].innerText !== '') {
+  } else if (store.game.cells[1] === store.game.cells[4] && store.game.cells[4] === store.game.cells[7] && store.game.cells[1] !== '') {
     return true
-  } else if ($('.cell')[2].innerText === $('.cell')[5].innerText && $('.cell')[5].innerText === $('.cell')[8].innerText && $('.cell')[2].innerText !== '') {
+  } else if (store.game.cells[2] === store.game.cells[5] && store.game.cells[5] === store.game.cells[8] && store.game.cells[2] !== '') {
     return true
-  } else if ($('.cell')[2].innerText === $('.cell')[4].innerText && $('.cell')[4].innerText === $('.cell')[6].innerText && $('.cell')[2].innerText !== '') {
+  } else if (store.game.cells[2] === store.game.cells[4] && store.game.cells[4] === store.game.cells[6] && store.game.cells[2] !== '') {
     return true
-  } else if ($('.cell')[3].innerText === $('.cell')[4].innerText && $('.cell')[4].innerText === $('.cell')[5].innerText && $('.cell')[3].innerText !== '') {
+  } else if (store.game.cells[3] === store.game.cells[4] && store.game.cells[4] === store.game.cells[5] && store.game.cells[3] !== '') {
     return true
-  } else if ($('.cell')[6].innerText === $('.cell')[7].innerText && $('.cell')[7].innerText === $('.cell')[8].innerText && $('.cell')[6].innerText !== '') {
+  } else if (store.game.cells[6] === store.game.cells[7] && store.game.cells[7] === store.game.cells[8] && store.game.cells[6] !== '') {
     return true
+  } else if (!store.game.cells.includes('')) {
+    $('#message').text('It\'s a tie! Try again!')
+    gameOver = true
   } else {
     return false
   }

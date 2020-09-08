@@ -59,13 +59,14 @@ const onNewGameSuccess = function (res) {
   $('#message').text("X You're on!!")
   $('.board').show()
   $('.cell').text('')
-  console.log(store.game)
+  console.log('cells ', store.game.cells)
 }
 
 const onNewGameFailure = function (res) {
 }
 
 const onCellClickSuccess = function (res) {
+  console.log(res.game)
 }
 
 module.exports = {
