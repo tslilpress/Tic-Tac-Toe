@@ -13,7 +13,7 @@ const onSignUpFailure = function (err) {
 
 const onSignInSuccess = function (res) {
   store.user = res.user
-  $('#message').text(`Thanks for signing in ${res.user.email}! Click New Game to start playing!`)
+  $('#message').text(`Thanks for signing in ${res.user.email}! \n Click New Game to start playing!`)
   $('#sign-in-form').trigger('reset')
   $('#change-password').show()
   $('#sign-out-form').show()
@@ -44,6 +44,7 @@ const onSignOutSuccess = function (res) {
   $('#sign-out-form').hide()
   $('#new-game-form').hide()
   $('.board').hide()
+  $('#game-history-message').text('')
   $('#sign-in-form').show()
   $('#sign-up-form').show()
   $('#intro-buttons').show()
@@ -70,8 +71,7 @@ const onCellClickSuccess = function (res) {
 }
 
 const onGetStatsSuccess = function (res) {
-  // console.log(res)
-  $('#game-history-message').text(`You played this game ${res.games.length} times! Wow!`)
+  $('#game-history-message').text(`You played this game ${res.games.length} times!`)
 }
 
 module.exports = {
