@@ -66,9 +66,16 @@ const onNewGame = function (event) {
   gameOver = false
 
   // console.log('did i make it to onNewGame?')
-  api.newGame(event.target)
+  api.newGame()
     .then(ui.onNewGameSuccess)
+    .then(onGetStats())
     .catch(ui.onNewGameFailure)
+}
+
+const onGetStats = function () {
+  api.getStats()
+    .then(ui.onGetStatsSuccess)
+    .catch(ui.onGetStatsFailure)
 }
 
 let currentPlayer = 'X'
@@ -87,7 +94,7 @@ const onCellClick = function (event) {
     const dci = $(event.target).attr('data-cell-index')
     const dcInt = parseInt(dci)
     store.game.cells[dcInt] = currentPlayer
-    console.log('events cells ', store.game.cells)
+    // console.log('events cells ', store.game.cells)
   }
 
   gameOver = onWinner()

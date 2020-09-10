@@ -49,6 +49,16 @@ const newGame = function () {
   })
 }
 
+const getStats = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 const newClick = function (data, currentPlayer, gameOver) {
   // console.log('did i make it to newClick')
   return $.ajax({
@@ -75,5 +85,6 @@ module.exports = {
   changePassword: changePassword,
   signOut: signOut,
   newGame: newGame,
+  getStats: getStats,
   newClick: newClick
 }

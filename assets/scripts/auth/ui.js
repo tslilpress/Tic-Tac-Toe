@@ -59,14 +59,19 @@ const onNewGameSuccess = function (res) {
   $('#message').text("X You're on!!")
   $('.board').show()
   $('.cell').text('')
-  console.log('cells ', store.game.cells)
+  // console.log('cells ', store.game.cells)
 }
 
 const onNewGameFailure = function (res) {
 }
 
 const onCellClickSuccess = function (res) {
-  console.log(res.game)
+  // console.log(res.game)
+}
+
+const onGetStatsSuccess = function (res) {
+  // console.log(res)
+  $('#game-history-message').text(`You played this game ${res.games.length} times! Wow!`)
 }
 
 module.exports = {
@@ -80,5 +85,6 @@ module.exports = {
   onSignOutFailure,
   onCellClickSuccess,
   onNewGameSuccess,
-  onNewGameFailure
+  onNewGameFailure,
+  onGetStatsSuccess
 }
