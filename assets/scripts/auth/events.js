@@ -108,7 +108,7 @@ const onCellClick = function (event) {
   currentPlayer === 'O' ? currentPlayer = 'X' : currentPlayer = 'O'
   winner === 'O' ? winner = 'X' : winner = 'O'
   if (cellVal === '' && gameOver === false) {
-    $('#message').text(`${currentPlayer} i'ts your turn!`)
+    $('#message').text(`${currentPlayer} it's your turn!`)
   } else if (gameOver === true) {
     $('#message').text(`${winner} WON!`)
   }

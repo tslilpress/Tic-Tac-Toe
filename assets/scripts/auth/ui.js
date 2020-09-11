@@ -71,7 +71,13 @@ const onCellClickSuccess = function (res) {
 }
 
 const onGetStatsSuccess = function (res) {
-  $('#game-history-message').text(`You played this game ${res.games.length} times!`)
+  if (res.games.length === 0) {
+    $('#game-history-message').text()
+  } else if (res.games.length === 1) {
+    $('#game-history-message').text(`You played this game ${res.games.length} time!`)
+  } else {
+    $('#game-history-message').text(`You played this game ${res.games.length} times!`)
+  }
 }
 
 module.exports = {
