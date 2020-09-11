@@ -95,7 +95,7 @@ const onCellClick = function (event) {
   if (cellVal === '' && gameOver === false) {
     $(event.target).text(currentPlayer)
     store.game.cells[dcInt] = currentPlayer
-    console.log('events cells ', store.game.cells)
+    // console.log('events cells ', store.game.cells)
   } else {
     return
   }
