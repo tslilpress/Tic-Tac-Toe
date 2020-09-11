@@ -59,7 +59,7 @@ const getStats = function () {
   })
 }
 
-const newClick = function (data, currentPlayer, gameOver) {
+const newClick = function (dcInt, currentPlayer, gameOver) {
   // console.log('did i make it to newClick')
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
@@ -70,7 +70,7 @@ const newClick = function (data, currentPlayer, gameOver) {
     data: {
       game: {
         cell: {
-          index: data,
+          index: dcInt,
           value: currentPlayer
         },
         over: gameOver

@@ -87,19 +87,22 @@ const onCellClick = function (event) {
     return
   }
   // console.log('did i make it to onCellClick')
-  const data = event.target
+  // const data = event.target
+  const dci = $(event.target).attr('data-cell-index')
+  const dcInt = parseInt(dci)
+
   const cellVal = $(event.target).text()
   if (cellVal === '' && gameOver === false) {
     $(event.target).text(currentPlayer)
-    const dci = $(event.target).attr('data-cell-index')
-    const dcInt = parseInt(dci)
     store.game.cells[dcInt] = currentPlayer
-    // console.log('events cells ', store.game.cells)
+    console.log('events cells ', store.game.cells)
+  } else {
+    return
   }
 
   gameOver = onWinner()
 
-  api.newClick(data.dataset.cellIndex, currentPlayer, gameOver)
+  api.newClick(dcInt, currentPlayer, gameOver)
     .then(ui.onCellClickSuccess)
     .catch(ui.onCellClickFailure)
   currentPlayer === 'O' ? currentPlayer = 'X' : currentPlayer = 'O'
