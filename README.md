@@ -56,4 +56,4 @@ Lastly I created a request to show games played and created a message displaying
 - Would like to eventually create an automatic sign-in on sign-up
 
 ### Wireframe
-![wireframe](https://photos.app.goo.gl/9wnxiHMwXysAV4997)
+[wireframe](https://photos.app.goo.gl/9wnxiHMwXysAV4997)
